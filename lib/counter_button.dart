@@ -85,7 +85,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                   backgroundColor: Colors.transparent,
                 ),
               Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.symmetric(vertical: 3),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -103,7 +103,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                         color: widget.buttonColor,
                       ),
                     ),
-                    const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
+                    const Padding(padding: EdgeInsets.symmetric(vertical: 2)),
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 250),
                       layoutBuilder: (Widget? currentChild,
@@ -153,7 +153,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                         ),
                       ),
                     ),
-                    const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
+                    const Padding(padding: EdgeInsets.symmetric(vertical: 2)),
                     SizedBox(
                       width: 24.0,
                       height: 24.0,
