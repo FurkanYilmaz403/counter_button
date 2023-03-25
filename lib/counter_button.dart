@@ -20,11 +20,13 @@ class CounterButton extends StatefulWidget {
     this.countBoxColor = Colors.white,
     this.boxColor = Colors.white,
     this.borderColor = Colors.yellow,
+    this.step = 1,
   }) : super(key: key);
 
   final Color countBoxColor;
   final Color boxColor;
   final Color borderColor;
+  final num step;
 
   ///Value of the counter displayed in the center
   final num count;
@@ -94,13 +96,14 @@ class _AnimatedCounterState extends State<CounterButton> {
                         onPressed: widget.loading
                             ? null
                             : () {
-                                widget.onChange(widget.count + 1);
+                                widget.onChange(widget.count + step);
                               },
                         icon: widget.addIcon,
                         padding: EdgeInsets.zero,
                         color: widget.buttonColor,
                       ),
                     ),
+                    const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 250),
                       layoutBuilder: (Widget? currentChild,
@@ -137,7 +140,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                               width: 2,
                             )),
                         key: Key(widget.count.toString()),
-                        width: 24.0,
+                        width: 32.0,
                         height: 24.0,
                         child: Center(
                           child: Text(
@@ -150,6 +153,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                         ),
                       ),
                     ),
+                    const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
                     SizedBox(
                       width: 24.0,
                       height: 24.0,
@@ -157,7 +161,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                         onPressed: widget.loading
                             ? null
                             : () {
-                                widget.onChange(widget.count - 1);
+                                widget.onChange(widget.count - step);
                               },
                         icon: widget.removeIcon,
                         padding: EdgeInsets.zero,
