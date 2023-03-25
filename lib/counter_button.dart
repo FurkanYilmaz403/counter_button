@@ -96,7 +96,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                         onPressed: widget.loading
                             ? null
                             : () {
-                                widget.onChange(widget.count + step);
+                                widget.onChange(widget.count + widget.step);
                               },
                         icon: widget.addIcon,
                         padding: EdgeInsets.zero,
@@ -161,7 +161,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                         onPressed: widget.loading
                             ? null
                             : () {
-                                widget.onChange(widget.count - step);
+                                widget.onChange(widget.count - widget.step);
                               },
                         icon: widget.removeIcon,
                         padding: EdgeInsets.zero,
