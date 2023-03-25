@@ -141,7 +141,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                             )),
                         key: Key(widget.count.toString()),
                         width: 32.0,
-                        height: 24.0,
+                        height: 28.0,
                         child: Center(
                           child: Text(
                             widget.count.toString(),
