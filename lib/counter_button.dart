@@ -26,7 +26,7 @@ class CounterButton extends StatefulWidget {
   final Color countColor;
 
   ///Value change callback when the buttons are pressed
-  final ValueChanged<int> onChange;
+  final ValueChanged<num> onChange;
 
   ///For showing the linear progress indicator
   final bool loading;
