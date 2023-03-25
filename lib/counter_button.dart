@@ -7,17 +7,24 @@ import 'package:flutter/widgets.dart';
 ///Counter button class
 class CounterButton extends StatefulWidget {
   ///Constructor for the counter button
-  const CounterButton(
-      {Key? key,
-      required this.count,
-      required this.onChange,
-      required this.loading,
-      this.countColor = Colors.black,
-      this.addIcon = const Icon(Icons.add),
-      this.removeIcon = const Icon(Icons.remove),
-      this.buttonColor = Colors.black,
-      this.progressColor = Colors.black})
-      : super(key: key);
+  const CounterButton({
+    Key? key,
+    required this.count,
+    required this.onChange,
+    required this.loading,
+    this.countColor = Colors.black,
+    this.addIcon = const Icon(Icons.add),
+    this.removeIcon = const Icon(Icons.remove),
+    this.buttonColor = Colors.black,
+    this.progressColor = Colors.black,
+    this.countBoxColor = Colors.white,
+    this.boxColor = Colors.white,
+    this.borderColor = Colors.yellow,
+  }) : super(key: key);
+
+  final Color countBoxColor;
+  final Color boxColor;
+  final Color borderColor;
 
   ///Value of the counter displayed in the center
   final num count;
@@ -26,7 +33,7 @@ class CounterButton extends StatefulWidget {
   final Color countColor;
 
   ///Value change callback when the buttons are pressed
-  final ValueChanged<num> onChange;
+  final ValueChanged<int> onChange;
 
   ///For showing the linear progress indicator
   final bool loading;
@@ -54,8 +61,12 @@ class _AnimatedCounterState extends State<CounterButton> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(width: 0.5),
+        border: Border.all(
+          width: 2,
+          color: borderColor,
+        ),
         borderRadius: BorderRadius.circular(4.0),
+        color: boxColor,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(4.0),
@@ -77,15 +88,15 @@ class _AnimatedCounterState extends State<CounterButton> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     SizedBox(
-                      width: 32.0,
-                      height: 32.0,
+                      width: 24.0,
+                      height: 24.0,
                       child: IconButton(
                         onPressed: widget.loading
                             ? null
                             : () {
-                                widget.onChange(widget.count - 1);
+                                widget.onChange(widget.count + 1);
                               },
-                        icon: widget.removeIcon,
+                        icon: widget.addIcon,
                         padding: EdgeInsets.zero,
                         color: widget.buttonColor,
                       ),
@@ -118,10 +129,16 @@ class _AnimatedCounterState extends State<CounterButton> {
                           );
                         }
                       },
-                      child: SizedBox(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: countBoxColor,
+                            border: Border.all(
+                              color: borderColor,
+                              width: 2,
+                            )),
                         key: Key(widget.count.toString()),
-                        width: 32.0,
-                        height: 32.0,
+                        width: 24.0,
+                        height: 24.0,
                         child: Center(
                           child: Text(
                             widget.count.toString(),
@@ -134,15 +151,15 @@ class _AnimatedCounterState extends State<CounterButton> {
                       ),
                     ),
                     SizedBox(
-                      width: 32.0,
-                      height: 32.0,
+                      width: 24.0,
+                      height: 24.0,
                       child: IconButton(
                         onPressed: widget.loading
                             ? null
                             : () {
-                                widget.onChange(widget.count + 1);
+                                widget.onChange(widget.count - 1);
                               },
-                        icon: widget.addIcon,
+                        icon: widget.removeIcon,
                         padding: EdgeInsets.zero,
                         color: widget.buttonColor,
                       ),
