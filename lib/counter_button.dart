@@ -20,7 +20,7 @@ class CounterButton extends StatefulWidget {
       : super(key: key);
 
   ///Value of the counter displayed in the center
-  final int count;
+  final num count;
 
   ///Color of the counter value
   final Color countColor;
@@ -73,7 +73,7 @@ class _AnimatedCounterState extends State<CounterButton> {
                 ),
               Padding(
                 padding: const EdgeInsets.all(8),
-                child: Row(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     SizedBox(
