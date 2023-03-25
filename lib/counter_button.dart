@@ -33,7 +33,7 @@ class CounterButton extends StatefulWidget {
   final Color countColor;
 
   ///Value change callback when the buttons are pressed
-  final ValueChanged<int> onChange;
+  final ValueChanged<num> onChange;
 
   ///For showing the linear progress indicator
   final bool loading;
@@ -63,10 +63,10 @@ class _AnimatedCounterState extends State<CounterButton> {
       decoration: BoxDecoration(
         border: Border.all(
           width: 2,
-          color: borderColor,
+          color: widget.borderColor,
         ),
         borderRadius: BorderRadius.circular(4.0),
-        color: boxColor,
+        color: widget.boxColor,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(4.0),
@@ -131,9 +131,9 @@ class _AnimatedCounterState extends State<CounterButton> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            color: countBoxColor,
+                            color: widget.countBoxColor,
                             border: Border.all(
-                              color: borderColor,
+                              color: widget.borderColor,
                               width: 2,
                             )),
                         key: Key(widget.count.toString()),
