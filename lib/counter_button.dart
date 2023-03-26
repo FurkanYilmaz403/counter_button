@@ -144,7 +144,9 @@ class _AnimatedCounterState extends State<CounterButton> {
                         height: 28.0,
                         child: Center(
                           child: Text(
-                            widget.count.toString(),
+                            (widget.step == 1)
+                                ? widget.count.toInt().toString()
+                                : widget.count.toString(),
                             style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w600,
